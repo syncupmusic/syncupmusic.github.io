@@ -1,0 +1,11 @@
+.dropdown-menu>li>a{
+
+  background-color: black;
+  color:white;
+    font-weight: bold;
+}
+
+.dropdown-menu{
+
+    background-color: black;
+}

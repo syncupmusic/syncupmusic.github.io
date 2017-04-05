@@ -1,1 +1,492 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SyncUp</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+
+     <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Roboto" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+
+
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+</script><style type="text/css">
+    .show {
+        display: block !important;
+    }
+
+    #gmapcontainer {
+        display: none;
+    }
+</style>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                     <span class="light"></span> Sync Up
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Muser Profile</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="container" style="height:200px">
+	<div class="row">
+
+           <div id="custom-search-input">
+                            <div class="input-group col-md-4 ui-widget" style="margin-left: 28%; margin-top: 20%; width:470px">
+                                <input id="tags" type="text" class="  search-query form-control" placeholder="Search for your musician&nbsp;                                                | Filter" />
+                                <span class="input-group-btn">
+                                    <button style="margin-left:-60px;background-color: transparent; color:black !important;" type="button" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus-sign" style="color:black; border:transparent"></span></span></button>
+                                        <ul class="dropdown-menu" style="left:-180px">
+                                            <li><a href="#" class="small" data-value="option1" tabIndex="-1"><input type="checkbox"/>&nbsp;Genre</a></li>
+                                            <li><a href="#" class="small" data-value="option2" tabIndex="-1"><input type="checkbox"/>&nbsp;Experience Level</a></li>
+                                            <li><a href="#" class="small" data-value="option3" tabIndex="-1"><input type="checkbox"/>&nbsp;Km Radius</a></li>
+                                            <li><a href="#" class="small" data-value="option4" tabIndex="-1"><input type="checkbox"/>&nbsp;Age</a></li>
+
+                                        </ul>
+
+
+                                   <a href="#about" class="page-scroll"> <button class="btn btn-danger" type="button" >
+                                        <span class=" glyphicon glyphicon-search" class="page-scroll" href="#about"></span>
+                                   </button></a>
+                                </span>
+                            </div>
+                        </div>
+	                </div>
+                </div>
+    <!--<div class="row" style="margin-top:80px">-->
+        <!--<div class="col-lg-3"></div>-->
+        <!--<div class="col-lg-6">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-4"><img src="data:image/jpeg;base64,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" </div>-->
+                <!--<div class="col-lg-4">Hello</div>-->
+                <!--<div class="col-lg-4">Hello</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-lg-3"></div>-->
+    <!--</div>-->
+        </header>
+
+
+
+
+ <!-- About Section -->
+    <section style="background-color:transparent; line-height:250%; color:#4d4d4d; font-family:Roboto; padding-top:50px" id="about">
+       <!-- Page Content -->
+          <div class="container-fluid" style="margin-left:18%; margin-right:18%; padding-left:4%; padding-right:4%; padding-bottom:20px; padding-top:20px; background-color:#f5f5f5; border-radius:2px; box-shadow:0px 1px 2px #464646; font-size:12px">
+            <div class="row">
+              <div class="col-sm-5">
+                <div class="row">
+                  <div class="col-lg-12" style="">
+                    <img src="singer.jpg" alt="profile photo" class="img-responsive" style="margin:auto; padding-right:0px; width:100%; border-radius:2px; box-shadow:0px 0px 1px #464646">
+                  </div>
+                  <div class="col-lg-12" style="padding-top:15px">
+                    <button class="btn btn-danger" id="message_icon" data-toggle="modal" data-target="#email_modal" style="box-shadow:0px 1px 1px #737373; padding-left:2%; padding-top:5px; padding-bottom:4px; vertical-align:middle; color:#000000; font-weight:bold; border-radius:3px; border-style:none; color:#0d0d0d">
+                         <i class="material-icons"style="vertical-align:middle">chat_bubble_outline</i>
+                         Message
+                    </button>
+                    <button href="#" class="btn btn-danger" id="message_icon"
+                       style="box-shadow:0px 1px 1px #737373; padding-left:1%; padding-top:5px; padding-bottom:4px; margin-left:15px;  vertical-align:middle;  font-weight:bold; border-radius:3px; border-style:none; color:#0d0d0d">
+                         <i class="material-icons" style="vertical-align:middle;margin-bottom:0px">add</i>
+                         Collab
+                    </button>
+                  </div>
+              </div>
+              </div>
+              <div class="col-sm-7" style="line-height:200%; padding:3%">
+                <i class="material-icons" style="font-size:36px;color:#00f651;vertical-align:bottom">fiber_manual_record</i>
+                <span style="font-size:36px; font-weight:bold">
+                  Christie Palazzolo
+                </span><br><br>
+                  <span id = "location_city">Waterloo</span>,
+                  <span id = "location_province">ON</span>,
+                  <span id = "location_country">CA</span>
+                <div>
+                  <br><br><br>
+                  <span style="font-weight:bold">Role: </span><span id="role" style="font-weight:normal;">Vocalist</span><br>
+                  <span style="font-weight:bold">Genre: </span><span id="genre" style="font-weight:normal;">Pop, Jazz</span><br>
+                  <span style="font-weight:bold">Experience Level: </span><span id="experience_level" style="font-weight:normal;">Advanced</span><br>
+                  <span style="font-weight:bold">Looking For: </span><span id="looking_for" style="font-weight:normal;">Professional Songwriter</span>
+                </div>
+              </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <div class="col-sm-7" style="">
+              <img id="youtube_video" src="youtube_preview.png" alt="youtube video" class="img-responsive" >
+            </div>
+            <div class="col-sm-5" style="box-shadow:0px 0px 1px #737373; border-radius:2px; height:100%">
+              <span style="font-size:18px; font-weight:bold">Summary</span><br>
+              I’m a pop singer who has been competing in singing competitions for 10 years.
+              I am looking for a songwriter with 3+ years of experience in writing pop.
+              I want to co-write a song to enter into CBC Radio’s annual Canadian songwriting competition. Collab with me if we’re a match!
+            </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <div id="experience" class="col-sm-5" style="box-shadow:0px 0px 1px #737373; border-radius:2px; margin-left:15px">
+              <span style="font-size:18px; font-weight:bold">Experience</span>
+              <ul style="list-style-type:none; padding-left:0px">
+                <li>
+                  <span style="font-weight:bold">Waterloo Jazz Band</span><br>
+                    I was the lead vocalist for my university's jazz band. Competed in regional competitions where we won silver, and I was awarded for best solo.
+                </li>
+                <li>
+                  <span style="font-weight:bold">Vocal Instructor</span><br>
+                    I have been a vocal instructor at Kitchener Music for the past two years, giving vocal lessons to beginners.
+                </li>
+                <li>
+                  <span style="font-weight:bold">Indie Rock Band</span><br>
+                    I am the lead vocalist of a band I started with my friends called Firestone.
+                </li>
+              </ul>
+            </div>
+          <div class="col-sm-6" style=" margin-left:20px">
+            <div class="row" style="box-shadow:0px 0px 1px #737373; border-radius:2px; padding-bottom:15px;">
+            <span style="font-size:18px; font-weight:bold; padding-left:10px">Listen to Album</span>
+            <div class="col-sm-6" style="margin:auto;">
+              <img src="album_cover.jpg" alt="profile photo" class="img-responsive" style="margin:auto; width:100%; border-radius:2px;">
+            </div>
+            <div class="col-sm-6" style="margin:auto; padding-left:0px">
+                <ul style="list-style-type:none; line-height:250%; padding-left:0px">
+                    <li><button id="play_all_btn" class="material-icons"style="border-style:none; background-color:transparent; vertical-align:middle; padding:0px; font-size:36px; margin-left:-6px;">play_circle_outline</button><span> Play All</span><span style="float:right">19:58</span></li>
+                    <li><button class="material-icons play-song"style="border-style:none; background-color:transparent; vertical-align:middle; padding:0px">play_arrow</button>Over You <span style="float:right">3:24</span></li>
+                    <li><button class="material-icons play-song"style="border-style:none; background-color:transparent; vertical-align:middle; padding:0px">play_arrow</button>For Love <span style="float:right">3:51</span></li>
+                    <li><button class="material-icons play-song"style="border-style:none; background-color:transparent; vertical-align:middle; padding:0px">play_arrow</button>Tomorrow <span style="float:right">3:51</span></li>
+                    <li><button class="material-icons play-song"style="border-style:none; background-color:transparent; vertical-align:middle; padding:0px; float:right">more_horiz</button></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row" style="box-shadow:0px 0px 1px #737373; border-radius:2px;  padding-bottom:15px; margin-top:20px">
+              <!--<span style="font-size:18px; font-weight:bold; padding-left:10px">Gallery</span>-->
+              <div class="col-sm-4">
+                <button class="material-icons" style="float:right; padding-top:20px; border-style:none; background-color:transparent;">keyboard_arrow_left</button>
+              </div>
+              <div class="col-sm-4" style="margin:auto">
+                <img src="gallery.jpg" alt="profile photo" class="img-responsive" style=" width:100%; border-radius:2px;">
+              </div>
+              <div class="col-sm-4" style="padding-top:20px">
+                <button class="material-icons" style="border-style:none; background-color:transparent;">keyboard_arrow_right</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div id="reference" class="col-sm-12" style="box-shadow:0px 0px 1px #737373; border-radius:2px; margin-left:15px;">
+            <span style="font-size:18px; font-weight:bold">References</span>
+            <ul style="list-style-type:none; padding-left:0px">
+              <li>
+                  Christie really knows her pop technique! Thanks for singing on my album, can’t wait to collab again 🙂
+                <span style="float:right">-<a href="#reference">Noah Tomson</a>, April 2016</span>
+              </li>
+              </span
+            </ul>
+          </div>
+          <div class="col-sm-12" style="box-shadow:0px 0px 1px #737373; border-radius:2px; margin-left:15px; margin-top:20px">
+            <span style="font-size:18px; font-weight:bold">Location</span>
+          </div>
+        </div>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </section>
+
+
+<div id="email_modal" class="modal fade" role="dialog" style="color:#4d4d4d; font-family:Roboto; font-size:12px">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span style="font-size:18px; font-weight:bold">Email Christie</span>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div id="email_modal_body" class="modal-body">
+        <!-- <div id="email_send_confirm" style="display:flex; align-items:center; justify-content:center; color:#00e651">
+          <i class="material-icons" style="font-size:80px">check_circle</i><br>
+          <span style="font-size:54px">Email Sent!</span>
+        </div> -->
+        <form id="email_form" onsubmit="sendEmail()">
+        <div class="form-group">
+          <label>Enter message here:</label>
+          <textarea id="email_message" type="text" class="form-control" style="margin-bottom:15px; height:100%" required></textarea>
+          <button id="send_email_btn" type="submit" class="btn btn-default" >Send</button>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+    <button onclick="openmap()">
+    Click for map
+</button>
+<div id="gmapcontainer" class="" style="display:none;">
+    <div id="googleMap" class="" style="width:100%;height:400px;"></div>
+</div>
+    </section>
+
+    <!-- Map Section -->
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; Your Website 2016</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIj6SKlqRMo2QGLMDSdKaYBHmujN2rwt0&sensor=false"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
+
+</body>
+<script>
+
+      $(document).ready(function(){
+    $('#send_email_btn').click(function(){
+      var x = $.trim($("#email_message").val());
+      if (x.length > 0){
+        $("#email_message").val("");
+        $("#email_modal").modal("hide");
+      }
+    });
+  });
+
+
+       var dummydata = [{
+        user: 0,
+        name: "Elon Musk",
+        lat: 0,
+        lng: 1
+    }, {
+        user: 1,
+        name: "Elon Musk's no.1 friend",
+        lat: 0,
+        lng: 10
+    }, {
+        user: 2,
+        name: "Elon Musk's no.2 friend",
+        lat: 0,
+        lng: 11
+    }, {
+        user: 3,
+        name: "Elon Musk's no.3 friend",
+        lat: 1,
+        lng: 11
+    }, {
+        user: 4,
+        name: "Elon Musk's no.4 friend",
+        lat: 2,
+        lng: 11
+    }];
+    function myMap() {
+        var mapProp = {
+            center: new google.maps.LatLng(51.508742, -0.120850),
+            zoom: 8,
+        };
+        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                console.log(pos);
+                var infoWindow = new google.maps.InfoWindow({
+                    content: "Your location"
+                });
+                //infoWindow.setPosition(pos);
+                //infoWindow.setContent('Location found.');
+                var marker = new google.maps.Marker({
+                    position: pos,
+                    map: map,
+                    title: "Your location"
+                });
+                map.setCenter(pos);
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
+                });
+            }, function() {
+                //handleLocationError(true, infoWindow, map.getCenter());
+            });
+        }
+        else {
+            // Browser doesn't support Geolocation
+            //handleLocationError(false, infoWindow, map.getCenter());
+        }
+        /*dummydata.forEach(function(element) {
+            var user_pos = {
+                lat: element.lat,
+                lng: element.lng
+            };
+            var marker = new google.maps.Marker({
+                position: user_pos,
+                map: map,
+                title: element.name
+            });
+            var infoWindow = new google.maps.InfoWindow({
+                content: element.name
+            });
+            if (element.user % 2 == 0) marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+        });*/
+        var markers = dummydata.map(function(location, i) {
+            var user_pos = {
+                lat: location.lat,
+                lng: location.lng
+            };
+            var marker = new google.maps.Marker({
+                position: user_pos
+            });
+            var infoWin = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, 'click', function(evt) {
+                infoWin.setContent(location.name);
+                infoWin.open(map, marker);
+            });
+            if (location.user % 2 == 0) marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+            else marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+            return marker;
+        });
+        var markerCluster = new MarkerClusterer(map, markers, {
+            imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+        });
+    }
+    function openmap() {
+        //$("#gmapcontainer").addClass("show");
+        document.getElementById('gmapcontainer').style.display = "block";
+        myMap();
+    }
+
+
+
+    $( function() {
+    var availableTags = [
+      "Sarah Thomas, Intermediate Guitarist, Toronto",
+      "Bobby Brown, Pop Guitarist, Waterloo",
+      "Doug Fournier, Advanced Drummer Drummer, Kitchener",
+      "Dan Betty, Beginner Guitarist, Kitchener",
+      "Christie Palazzolo, Pop Singer, Waterloo",
+        "Arijit Singh, Professional Vocalist, Waterloo",
+      "Calvin Stewart, Rock Guitarist, Waterloo",
+    ];
+
+
+
+
+
+
+
+
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+
+    var options = [];
+
+$( '.dropdown-menu a' ).on( 'click', function( event ) {
+
+   var $target = $( event.currentTarget ),
+       val = $target.attr( 'data-value' ),
+       $inp = $target.find( 'input' ),
+       idx;
+
+   if ( ( idx = options.indexOf( val ) ) > -1 ) {
+      options.splice( idx, 1 );
+      setTimeout( function() { $inp.prop( 'checked', false ) }, 0);
+   } else {
+      options.push( val );
+      setTimeout( function() { $inp.prop( 'checked', true ) }, 0);
+   }
+
+   $( event.target ).blur();
+
+   console.log( options );
+   return false;
+});
+
+</script>
+</html>
